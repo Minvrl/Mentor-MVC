@@ -40,7 +40,7 @@
                             <ul>
                                 @foreach (Feature ft in Model.Features)
                                 {
-                                    if (item.Features.Any(x=> x == ft))
+                                    if (item.Features.Any(x=>x.FeatureId==ft.Id))
                                     {
                                         <li>@ft.Name</li>
                                     }

@@ -22,6 +22,7 @@ namespace Mentor_MVC.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Features = _context.Features.ToList();
             return View();  
         }
 
@@ -30,8 +31,22 @@ namespace Mentor_MVC.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.Features = _context.Features.ToList();
                 return View(price);
             }
+
+            //foreach (var featureId in price.FeatureId)
+            //{
+            //    if (!_context.Features.Any(x => x.Id == featureId)) return RedirectToAction("notfound", "error");
+
+            //    FeaturePrice featp = new FeaturePrice
+            //    {
+            //        FeatureId = featureId,
+            //        Price = price
+            //    };
+            //    price.Features.Add(featp);
+            //}
+
 
             _context.Prices.Add(price);
             _context.SaveChanges();
@@ -55,7 +70,7 @@ namespace Mentor_MVC.Areas.Admin.Controllers
                 return View(price);
             }
             Price? existPrice = _context.Prices.Include(x => x.Features).FirstOrDefault(x => x.Id == price.Id);
-
+            
 
             if (existPrice == null) return RedirectToAction("Error", "NotFound");
 

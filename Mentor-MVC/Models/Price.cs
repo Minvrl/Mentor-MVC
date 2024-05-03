@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace Mentor_MVC.Models
 {
@@ -10,6 +11,8 @@ namespace Mentor_MVC.Models
         public bool IsAdvanced { get; set; }  
         public bool IsFeatured { get; set; }
         public string ButtonURL { get; set; }
-        public List<Feature>? Features { get; set; }    
+        [NotMapped]
+        public List<int>? FeatureId { get; set; }    
+        public List<CardFeatures>? Features { get; set; }    
     }
 }
