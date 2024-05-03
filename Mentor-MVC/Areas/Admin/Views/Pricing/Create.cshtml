@@ -1,0 +1,77 @@
+﻿@model Price
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Books</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            Create
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form class="user" asp-action="create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" id="Name" placeholder=" ">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Fee">Fee</label>
+                    <input asp-for="Fee" class="form-control" id="Fee" placeholder=" ">
+                    <span class="text-danger" asp-validation-for="Fee"></span>
+                </div>
+                <div class="form-group">
+                    <label for="ButtonURL">ButtonURL</label>
+                    <input asp-for="ButtonURL" class="form-control" id="ButtonURL" placeholder=" ">
+                    <span class="text-danger" asp-validation-for="ButtonURL"></span>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="IsAdvanced" id="IsNew">
+                                <label class="form-check-label" for="IsAdvanced">
+                                    IsAdvanced
+                                </label>
+                                <span class="text-danger" asp-validation-for="IsAdvanced"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check col-md-4">
+                                <input class="form-check-input" asp-for="IsFeatured" id="IsFeatured">
+                                <label class="form-check-label" for="IsFeatured">
+                                    IsFeatured
+                                </label>
+                                <span class="text-danger" asp-validation-for="IsFeatured"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <h1>Features</h1>
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="IsAdvanced" id="IsNew">
+                                <label class="form-check-label" for="IsAdvanced">
+                                    IsAdvanced
+                                </label>
+                                <span class="text-danger" asp-validation-for="IsAdvanced"></span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">
+                    Create Pricing
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

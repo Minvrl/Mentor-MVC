@@ -10,6 +10,6 @@ namespace Mentor_MVC.Models
         public bool IsAdvanced { get; set; }  
         public bool IsFeatured { get; set; }
         public string ButtonURL { get; set; }
-        public List<Feature> Features { get; set; }    
+        public List<Feature>? Features { get; set; }    
     }
 }
