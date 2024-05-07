@@ -1,4 +1,6 @@
 using Mentor_MVC.Data;
+using Mentor_MVC.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,13 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+
+builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+{
+    opt.Password.RequireNonAlphanumeric = false;
+    opt.Password.RequireUppercase = false;
+    opt.Password.RequiredLength = 8;
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
 var app = builder.Build();
 
@@ -25,6 +34,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 

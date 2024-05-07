@@ -1,11 +1,13 @@
 ﻿using Humanizer.Localisation;
 using Mentor_MVC.Data;
 using Mentor_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mentor_MVC.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("admin")]
     public class PricingController : Controller
     {
